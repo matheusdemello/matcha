@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expanded Matcha Tea Comparison Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #004d00;
+      color: white;
+      position: sticky;
+      top: 0;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f8f2;
+    }
+    tr:hover {
+      background-color: #e6f2e6;
+    }
+    .sorting-buttons {
+      margin-bottom: 15px;
+    }
+    .sorting-buttons button {
+      background-color: #006600;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sorting-buttons button:hover {
+      background-color: #004d00;
+    }
+    .search-container {
+      margin-bottom: 15px;
+    }
+    .search-container input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .filter-container {
+      margin-bottom: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .filter-container select {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .price-tier {
+      font-weight: bold;
+    }
+    .premium {
+      color: #8B0000;
+    }
+    .high {
+      color: #B8860B;
+    }
+    .mid {
+      color: #006400;
+    }
+    .entry {
+      color: #4682B4;
+    }
+    .tea-type {
+      display: inline-block;
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-size: 0.8em;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .usucha {
+      background-color: #D6EAF8;
+      color: #1F618D;
+    }
+    .koicha {
+      background-color: #D5F5E3;
+      color: #186A3B;
+    }
+    .ceremonial {
+      background-color: #FADBD8;
+      color: #943126;
+    }
+    .daily {
+      background-color: #F9E79F;
+      color: #7D6608;
+    }
+    .award {
+      background-color: #F5CBA7;
+      color: #A04000;
+    }
+    .origin {
+      font-style: italic;
+      color: #5D6D7E;
+    }
+    h1 {
+      color: #004d00;
+      border-bottom: 2px solid #004d00;
+      padding-bottom: 10px;
+    }
+    .info-box {
+      background-color: #f2f8f2;
+      border: 1px solid #006600;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    .info-box h3 {
+      margin-top: 0;
+      color: #004d00;
+    }
+    .grade-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .grade-item {
+      display: flex;
+      align-items: center;
+    }
+    .grade-color {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      border-radius: 3px;
+    }
+    .hidden {
+      display: none;
+    }
+    .flag-icon {
+      font-size: 1.2em;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Expanded Matcha Tea Comparison Guide</h1>
+  
+  <div class="info-box">
+    <h3>Understanding Japanese Matcha Grades & Types</h3>
+    <p><strong>Usucha (薄茶)</strong>: "Thin tea" - the most common preparation in casual settings, using about 2g matcha whisked with 70-80ml hot water.</p>
+    <p><strong>Koicha (濃茶)</strong>: "Thick tea" - used in formal tea ceremonies, requiring highest grade matcha, using about 4g matcha with only 30-40ml water.</p>
+    <p><strong>Ceremonial Grade</strong>: Highest quality matcha meant for drinking as tea; made from youngest tea leaves with stems and veins removed.</p>
+    <p><strong>Culinary/Ingredient Grade</strong>: Lower grade matcha designed for cooking, baking, and lattes; often more bitter and less complex.</p>
+    
+    <div class="grade-legend">
+      <div class="grade-item"><div class="grade-color" style="background-color: #8B0000;"></div> Premium Tier ($40+/20g)</div>
+      <div class="grade-item"><div class="grade-color" style="background-color: #B8860B;"></div> High Tier ($30-40/20g)</div>
+      <div class="grade-item"><div class="grade-color" style="background-color: #006400;"></div> Mid Tier ($20-30/20g)</div>
+      <div class="grade-item"><div class="grade-color" style="background-color: #4682B4;"></div> Entry Tier (under $20/20g)</div>
+    </div>
+  </div>
+  
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for any matcha characteristic..." onkeyup="searchTable()">
+  </div>
+  
+  <div class="filter-container">
+    <select id="originFilter" onchange="filterTable()">
+      <option value="">All Origins</option>
+      <option value="Kyoto (Uji)">Kyoto (Uji)</option>
+      <option value="Fukuoka (Yame)">Fukuoka (Yame)</option>
+      <option value="Kyotanabe">Kyotanabe</option>
+      <option value="Various">Various</option>
+    </select>
+    
+    <select id="priceFilter" onchange="filterTable()">
+      <option value="">All Price Ranges</option>
+      <option value="premium">Premium Tier ($40+/20g)</option>
+      <option value="high">High Tier ($30-40/20g)</option>
+      <option value="mid">Mid Tier ($20-30/20g)</option>
+      <option value="entry">Entry Tier (under $20/20g)</option>
+    </select>
+    
+    <select id="usageFilter" onchange="filterTable()">
+      <option value="">All Usage Types</option>
+      <option value="koicha">Suitable for Koicha</option>
+      <option value="usucha">Best for Usucha</option>
+      <option value="daily">Daily Drinking</option>
+      <option value="ceremonial">Ceremonial</option>
+    </select>
+  </div>
+  
+  <div class="sorting-buttons">
+    <button onclick="sortTable(0)">Sort by Brand</button>
+    <button onclick="sortTable(1)">Sort by Product</button>
+    <button onclick="sortTable(2)">Sort by Origin</button>
+    <button onclick="sortTable(4)">Sort by Price</button>
+    <button onclick="sortTable(7)">Sort by Cultivation</button>
+  </div>
+  
+  <div class="container">
+    <table id="matchaTable">
+      <thead>
+        <tr>
+          <th>Brand / Store</th>
+          <th>Specific Matcha</th>
+          <th>Origin</th>
+          <th>Flavor Profile</th>
+          <th>Price (USD)</th>
+          <th>Suggested Use</th>
+          <th>Grade Level</th>
+          <th>Cultivation Notes</th>
+          <th>Color & Aroma</th>
+          <th>Shopping</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="premium koicha ceremonial">
+          <td><strong>Ippodo Tea Co.</strong><br/>Est. 1717, Kyoto</td>
+          <td>Ummon-no-mukashi<br/><span class="origin">Premium Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Deep, rich, profound umami. Very smooth, almost creamy texture with lingering savory sweetness. Benchmark high-end umami. Nearly zero astringency.</td>
+          <td class="price-tier premium">~$45-55 (20g)<br/>~$85-100 (40g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span><span class="tea-type award">Award-Winning</span></td>
+          <td>Premium (Highest)<br/>First-harvest</td>
+          <td>Early spring first flush (Ichibancha)<br/>Hand-picked<br/>Shaded 20-30 days</td>
+          <td>Vibrant emerald green<br/>Sweet, marine aroma</td>
+          <td><a href="https://ippodotea.com/" target="_blank">Ippodo Official</a><br/>International shipping</td>
+        </tr>
+        <tr class="high koicha daily">
+          <td><strong>Ippodo Tea Co.</strong><br/>Est. 1717, Kyoto</td>
+          <td>Kan-no-shiro<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Balanced, mellow umami with noticeable sweetness and a refreshing finish. Less intense than Ummon, very smooth, good daily koicha. Minimal astringency.</td>
+          <td class="price-tier high">~$28-35 (20g)<br/>~$48-55 (40g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type daily">Daily Luxury</span></td>
+          <td>High<br/>First-harvest</td>
+          <td>Early spring first flush<br/>Shaded 20+ days<br/>Traditional stone-grinding</td>
+          <td>Bright green<br/>Fresh vegetal aroma</td>
+          <td><a href="https://ippodotea.com/" target="_blank">Ippodo Official</a><br/>International shipping</td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>Ippodo Tea Co.</strong><br/>Est. 1717, Kyoto</td>
+          <td>Sayaka-no-mukashi<br/><span class="origin">Mid-High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Bright, clean umami with gentle sweetness and minimal bitterness. Excellent smooth usucha (thin tea). Approachable profile with good balance.</td>
+          <td class="price-tier mid">~$25-30 (20g)<br/>~$38-45 (40g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Drinking</span></td>
+          <td>Mid-High<br/>First/Second harvest</td>
+          <td>Spring harvest<br/>Shaded 14-20 days<br/>Traditional production</td>
+          <td>Medium green<br/>Light, grassy aroma</td>
+          <td><a href="https://ippodotea.com/" target="_blank">Ippodo Official</a><br/>International shipping</td>
+        </tr>
+        <tr class="high koicha ceremonial">
+          <td><strong>Marukyu Koyamaen</strong><br/>Est. 1704, Multiple awards</td>
+          <td>Unkaku<br/><span class="origin">Premium Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Exceptionally deep, complex, velvety umami. Often wins awards. Rich, full-bodied, oceanic notes, minimal bitterness. Refined flavor development.</td>
+          <td class="price-tier high">~$35-45 (20g)<br/>~$65-80 (40g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span><span class="tea-type award">Award-Winning</span></td>
+          <td>Premium<br/>First-harvest</td>
+          <td>First flush<br/>Extended shading<br/>Competition quality<br/>Samidori cultivar</td>
+          <td>Deep emerald green<br/>Complex marine aroma</td>
+          <td>Retailers: <a href="https://sazentea.com/" target="_blank">Sazen Tea</a>, Hibiki-an, O-Cha</td>
+        </tr>
+        <tr class="high koicha ceremonial">
+          <td><strong>Marukyu Koyamaen</strong><br/>Est. 1704, Multiple awards</td>
+          <td>Choan<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Strong, refined umami with creamy mouthfeel and a clean, long finish. Slightly less intense than Unkaku but very high quality. Elegant balance.</td>
+          <td class="price-tier high">~$30-38 (20g)<br/>~$55-65 (40g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High<br/>First-harvest</td>
+          <td>First flush<br/>Extended shading<br/>Stone-ground<br/>Limited production</td>
+          <td>Bright emerald<br/>Sweet, complex aroma</td>
+          <td>Retailers: <a href="https://sazentea.com/" target="_blank">Sazen Tea</a>, Hibiki-an, O-Cha</td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>Marukyu Koyamaen</strong><br/>Est. 1704, Multiple awards</td>
+          <td>Wako<br/><span class="origin">Mid-High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Robust, well-rounded umami. Creamy texture, subtle sweetness, very satisfying daily ceremonial (usucha or koicha). Good balance of sweetness and umami.</td>
+          <td class="price-tier mid">~$18-25 (20g)<br/>~$30-40 (40g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type koicha">Koicha</span><span class="tea-type daily">Daily Ceremonial</span></td>
+          <td>Mid-High<br/>First/Second harvest</td>
+          <td>Spring harvest<br/>Medium shading<br/>Traditional process<br/>Popular tea house grade</td>
+          <td>Medium-bright green<br/>Fresh aroma</td>
+          <td>Retailers: <a href="https://sazentea.com/" target="_blank">Sazen Tea</a>, Hibiki-an, O-Cha</td>
+        </tr>
+        <tr class="entry usucha daily">
+          <td><strong>Marukyu Koyamaen</strong><br/>Est. 1704, Multiple awards</td>
+          <td>Kinrin<br/><span class="origin">Entry Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Pleasant, balanced umami with a slight vegetal note. Good entry-level ceremonial, smooth for usucha. Approachable with mild astringency.</td>
+          <td class="price-tier entry">~$15-20 (20g)<br/>~$25-35 (40g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Drinking</span></td>
+          <td>Entry-Mid<br/>Second harvest</td>
+          <td>Spring-Summer harvest<br/>Medium shading<br/>Good introduction to ceremonial grade</td>
+          <td>Medium green<br/>Light grassy aroma</td>
+          <td>Retailers: <a href="https://sazentea.com/" target="_blank">Sazen Tea</a>, Hibiki-an, O-Cha</td>
+        </tr>
+        <tr class="high usucha ceremonial">
+          <td><strong>Hibiki-an</strong><br/>Direct farm-to-cup, Uji</td>
+          <td>Matcha Super Premium<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Strong, clear umami profile sourced directly from their Uji fields. Smooth texture with prominent sweet undertones. Balanced with minimal bitterness.</td>
+          <td class="price-tier high">~$30-35 (30g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High<br/>First-harvest</td>
+          <td>Direct from farm<br/>Hand-picked<br/>Shaded 20+ days<br/>Asahi and Samidori cultivars</td>
+          <td>Vibrant green<br/>Fresh spring aroma</td>
+          <td><a href="https://www.hibiki-an.com/" target="_blank">Hibiki-an Official</a><br/>Direct from Uji</td>
+        </tr>
+        <tr class="premium koicha ceremonial">
+          <td><strong>Hibiki-an</strong><br/>Direct farm-to-cup, Uji</td>
+          <td>Pinnacle Matcha<br/><span class="origin">Premium Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Extremely rich, deep, complex umami. Velvety smooth, designed for koicha (thick tea), representing their highest grade. Nearly zero astringency, long finish.</td>
+          <td class="price-tier premium">~$50-60 (30g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span><span class="tea-type award">Competition Grade</span></td>
+          <td>Premium (Highest)<br/>First-harvest</td>
+          <td>First spring flush<br/>Heavy shading (30+ days)<br/>Stone-ground<br/>Limited quantity<br/>Flagship product</td>
+          <td>Deep emerald green<br/>Complex sweet marine aroma</td>
+          <td><a href="https://www.hibiki-an.com/" target="_blank">Hibiki-an Official</a><br/>Direct from Uji</td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>Maiko no Cha</strong><br/>Kyoto-based, Traditional</td>
+          <td>Premium Ceremonial Matcha (Gold)<br/><span class="origin">Mid-High Ceremonial</span></td>
+          <td>Kyotanabe (Uji)<br/>🇯🇵</td>
+          <td>Smooth, satisfying umami with a bright green color and fresh, slightly sweet aroma. Balanced and approachable. Clean finish with minimal bitterness.</td>
+          <td class="price-tier mid">~$28-35 (30g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Ceremonial</span></td>
+          <td>Mid-High<br/>First/Second harvest</td>
+          <td>Kyotanabe region<br/>Traditional processing<br/>Carefully selected leaves<br/>Stone-ground</td>
+          <td>Bright green<br/>Fresh vegetal aroma</td>
+          <td><a href="https://maiko.store/" target="_blank">Maiko Store</a><br/>International shipping</td>
+        </tr>
+        <tr class="high usucha ceremonial">
+          <td><strong>Horaido</strong><br/>Historic tea house, Uji</td>
+          <td>Hatsu Mukashi<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Elegant, refined umami. Known for smooth texture and a clean, lingering sweet finish. Subtle complexity. Traditional profile with excellent balance.</td>
+          <td class="price-tier high">~$30-40 (20g)<br/>~$55-65 (40g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High<br/>First-harvest</td>
+          <td>Traditional Uji processing<br/>Stone-ground<br/>Limited availability<br/>Tea ceremony favorite</td>
+          <td>Deep green<br/>Sweet, complex aroma</td>
+          <td>Retailers: Thes du Japon, <a href="https://yunomi.life/" target="_blank">Yunomi</a></td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>Hoshino Seichaen</strong><br/>Yame specialist</td>
+          <td>Seijou no Shiro (Ceremonial)<br/><span class="origin">Yame Region Ceremonial</span></td>
+          <td>Fukuoka (Yame)<br/>🇯🇵</td>
+          <td>Distinct Yame umami – rich, sweet undertones, sometimes described as slightly nutty or marine. Very smooth. Characteristic regional profile.</td>
+          <td class="price-tier mid">~$25-35 (20g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Ceremonial</span></td>
+          <td>Mid-High<br/>First/Second harvest</td>
+          <td>Yame region specialty<br/>Fog-covered mountains<br/>Different terroir from Uji<br/>Distinctive regional character</td>
+          <td>Bright green<br/>Nutty, sweet aroma</td>
+          <td>Retailers: Sazen Tea, <a href="https://www.o-cha.com/" target="_blank">O-Cha</a></td>
+        </tr>
+        <tr class="high koicha ceremonial">
+          <td><strong>Hoshino Seichaen</strong><br/>Yame specialist</td>
+          <td>Suisho no Mukashi (Premium)<br/><span class="origin">Premium Yame Ceremonial</span></td>
+          <td>Fukuoka (Yame)<br/>🇯🇵</td>
+          <td>Deeper, more complex umami than Seijou. Creamy texture, lingering sweetness, characteristic Yame profile. Rich regional characteristics.</td>
+          <td class="price-tier high">~$35-45 (20g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High-Premium<br/>First-harvest</td>
+          <td>Top tier Yame matcha<br/>First flush<br/>Extended shading<br/>Traditional stone-grinding</td>
+          <td>Deep forest green<br/>Complex sweet, nutty aroma</td>
+          <td>Retailers: Sazen Tea, <a href="https://www.o-cha.com/" target="_blank">O-Cha</a></td>
+        </tr>
+        <tr class="high usucha ceremonial">
+          <td><strong>Rishouen Tea</strong><br/>Artisanal Uji producer</td>
+          <td>Narino<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Delicate yet present umami, very smooth with a slight floral or fresh vegetal note. Clean finish. Refined and elegant character.</td>
+          <td class="price-tier high">~$30-40 (20g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High<br/>First-harvest</td>
+          <td>Small-batch production<br/>Traditional methods<br/>Artisanal stone-grinding<br/>Limited availability</td>
+          <td>Bright emerald green<br/>Floral, fresh aroma</td>
+          <td>Specialty retailers: Thes du Japon, Yunomi</td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>Azuma Tea Garden</strong><br/>Cultivar specialist</td>
+          <td>Gokou Cultivar Matcha<br/><span class="origin">Cultivar-Specific Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Unique Gokou cultivar umami - often described as milky, creamy, very sweet undertones alongside the savory notes. Distinctive cultivar profile.</td>
+          <td class="price-tier mid">~$25-35 (20g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Drinking</span></td>
+          <td>Mid-High<br/>Cultivar-specific</td>
+          <td>Gokou cultivar<br/>Known for sweetness<br/>Different from standard Uji cultivars<br/>Growing in popularity</td>
+          <td>Rich green<br/>Milky, sweet aroma</td>
+          <td>Specialty retailers: <a href="https://yunomi.life/" target="_blank">Yunomi</a></td>
+        </tr>
+        <tr class="high koicha ceremonial">
+          <td><strong>O-Cha.com</strong><br/>Direct importer, Specialist</td>
+          <td>Uji Matcha: Kiwami<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Their highest grade. Rich, deep umami, very smooth, minimal astringency, designed for discerning palates (koicha suitable). Excellent balance.</td>
+          <td class="price-tier high">~$35-40 (30g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High-Premium<br/>First-harvest</td>
+          <td>First flush<br/>Extended shading<br/>Traditional processing<br/>Flagship product</td>
+          <td>Deep emerald green<br/>Complex sweet aroma</td>
+          <td><a href="https://www.o-cha.com/" target="_blank">O-Cha Official</a><br/>International shipping</td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>O-Cha.com</strong><br/>Direct importer, Specialist</td>
+          <td>Uji Matcha: Chiyo Mukashi<br/><span class="origin">Mid-High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Solid ceremonial grade umami, well-balanced between savory and sweet notes. Smooth texture, good for daily usucha. Approachable profile.</td>
+          <td class="price-tier mid">~$25-30 (30g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Ceremonial</span></td>
+          <td>Mid-High<br/>First/Second harvest</td>
+          <td>Spring harvest<br/>Medium shading<br/>Good balance<br/>Popular daily grade</td>
+          <td>Bright green<br/>Fresh, vegetal aroma</td>
+          <td><a href="https://www.o-cha.com/" target="_blank">O-Cha Official</a><br/>International shipping</td>
+        </tr>
+        <tr class="premium koicha ceremonial">
+          <td><strong>Yamamasa Koyamaen</strong><br/>Established tea producer</td>
+          <td>Tennozan<br/><span class="origin">Premium Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Very high-grade, exceptionally smooth and rich umami. Deep green color, complex savory notes with lingering sweetness. Premier quality.</td>
+          <td class="price-tier premium">~$40-50 (20g)<br/>~$75-90 (40g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span><span class="tea-type award">Competition Quality</span></td>
+          <td>Premium (Highest)<br/>First-harvest</td>
+          <td>First spring flush<br/>Extended shading (30+ days)<br/>Stone-ground<br/>Limited production</td>
+          <td>Deep emerald green<br/>Complex, rich aroma</td>
+          <td>Retailers: <a href="https://sazentea.com/" target="_blank">Sazen Tea</a>, Yunomi</td>
+        </tr>
+        <tr class="high koicha ceremonial">
+          <td><strong>Yamamasa Koyamaen</strong><br/>Established tea producer</td>
+          <td>Ogurayama<br/><span class="origin">High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Excellent balance of rich umami and sweetness. Creamy texture, well-regarded standard for high-quality koicha/usucha. Refined character.</td>
+          <td class="price-tier high">~$28-35 (20g)<br/>~$50-60 (40g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type usucha">Usucha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High<br/>First-harvest</td>
+          <td>First flush<br/>Traditional processing<br/>Stone-ground<br/>Versatile preparation</td>
+          <td>Bright emerald green<br/>Sweet, complex aroma</td>
+          <td>Retailers: <a href="https://sazentea.com/" target="_blank">Sazen Tea</a>, Yunomi</td>
+        </tr>
+        <tr class="mid usucha daily">
+          <td><strong>Tsujiri</strong><br/>Historic brand, Est. 1860</td>
+          <td>Matcha Tsuki no Shiro<br/><span class="origin">Mid-High Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Smooth, balanced umami with a gentle sweetness and clean aftertaste. A reliable choice from a historic Uji tea house. Good daily ceremonial.</td>
+          <td class="price-tier mid">~$20-28 (20g)<br/>~$35-45 (40g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type daily">Daily Ceremonial</span></td>
+          <td>Mid-High<br/>First/Second harvest</td>
+          <td>Traditional Uji processing<br/>Historic tea house<br/>Balanced profile<br/>Good introduction to quality matcha</td>
+          <td>Bright green<br/>Fresh, clean aroma</td>
+          <td>Official site (Japan), Int'l retailers: Amazon Japan, Rakuten Global Market</td>
+        </tr>
+        <tr class="high usucha ceremonial">
+          <td><strong>Nakamura Tokichi</strong><br/>Historic Uji tea house</td>
+          <td>Uji Hikari Matcha<br/><span class="origin">Cultivar-Specific Ceremonial</span></td>
+          <td>Kyoto (Uji)<br/>🇯🇵</td>
+          <td>Bright, vibrant umami associated with the Uji Hikari cultivar. Fresh, slightly vegetal notes complementing the savory depth. Distinctive character.</td>
+          <td class="price-tier high">~$30-40 (30g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High<br/>Cultivar-specific</td>
+          <td>Uji Hikari cultivar<br/>Known for brightness<br/>Distinctive flavor profile<br/>Traditional processing</td>
+          <td>Vibrant green<br/>Fresh, bright aroma</td>
+          <td>Often via their own stores/cafes in Japan or specialty retailers</td>
+        </tr>
+        <tr class="mid koicha usucha daily">
+          <td><strong>Yunomi (Retailer)</strong><br/>Direct farm connections</td>
+          <td>Various Single Origin/Cultivar<br/><span class="origin">Farm & Cultivar Specific</span></td>
+          <td>Various (Japan)<br/>🇯🇵</td>
+          <td>Highly variable based on farm/cultivar. Often features unique profiles, e.g., intense savory, nutty, floral, oceanic umami. Excellent for exploring regional differences.</td>
+          <td class="price-tier mid">~$20-60+ (20g/30g)</td>
+          <td><span class="tea-type usucha">Usucha</span><span class="tea-type koicha">Koicha</span><span class="tea-type daily">Daily to Premium</span></td>
+          <td>Entry to Premium<br/>Farm-specific</td>
+          <td>Various cultivars<br/>Direct farm relationships<br/>Regional specialties<br/>Limited seasonal offerings</td>
+          <td>Varies by product<br/>Diverse aromatic profiles</td>
+          <td><a href="https://yunomi.life/" target="_blank">Yunomi Official</a><br/>(Browse their extensive Matcha section)</td>
+        </tr>
+        <tr class="high koicha ceremonial">
+          <td><strong>Ikkyu</strong><br/>Yame specialist, Direct source</td>
+          <td>Grand Cru Matcha Kirameki<br/><span class="origin">Premium Yame Ceremonial</span></td>
+          <td>Fukuoka (Yame)<br/>🇯🇵</td>
+          <td>Intense, sweet Yame umami with nutty and marine notes. Very smooth, low bitterness, high quality from Fukuoka region. Distinctive regional character.</td>
+          <td class="price-tier high">~$35-45 (30g)</td>
+          <td><span class="tea-type koicha">Koicha</span><span class="tea-type ceremonial">Ceremonial</span></td>
+          <td>High-Premium<br/>First-harvest</td>
+          <td>Yame specialty<br/>First spring flush<br/>Fog-covered mountains<br/>Traditional stone-grinding</td>
+          <td>Deep forest green<br/>Sweet, nutty aroma</td>
+          <td><a href="https://ikkyu-japan.com/" target="_blank">Ikkyu Official</a><br/>International shipping</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <h3>Matcha Brewing Guide</h3>
+    <p><strong>Traditional Usucha (Thin Tea)</strong>: Sift 1.5-2g (approx. 1/2-3/4 tsp) matcha into bowl. Add 70-80ml (2.5-3oz) water at 175-185°F (80-85°C). Whisk in "W" or "M" motion until frothy.</p>
+    <p><strong>Traditional Koicha (Thick Tea)</strong>: Sift 3-4g (approx. 1-1.5 tsp) matcha into bowl. Add 30-40ml (1-1.5oz) water at 175-185°F (80-85°C). Knead with chasen (bamboo whisk) until smooth and glossy, no froth.</p>
+    <p><strong>Modern Preparation</strong>: For lattes, smoothies, or cold brew, adjust quantities based on desired strength and other ingredients.</p>
+    <p><strong>Storage Tip</strong>: Always store matcha in airtight containers away from light, heat, moisture, and strong odors. Refrigeration recommended after opening.</p>
+  </div>
+
+  <script>
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("matchaTable");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    
+    function searchTable() {
+      // Declare variables
+      var input, filter, table, tr, td, i, j, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("matchaTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 1; i < tr.length; i++) {
+        tr[i].style.display = "none"; // Hide by default
+        
+        // Loop through all table columns for each row
+        for (j = 0; j < tr[i].cells.length; j++) {
+          td = tr[i].cells[j];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = ""; // Show if match found in any column
+              break; // Stop checking other columns for this row
+            }
+          }
+        }
+      }
+    }
+    
+    function filterTable() {
+      var originFilter, priceFilter, usageFilter, table, tr, tdOrigin, tdPrice, tdUsage, i;
+      originFilter = document.getElementById("originFilter").value;
+      priceFilter = document.getElementById("priceFilter").value;
+      usageFilter = document.getElementById("usageFilter").value;
+      
+      table = document.getElementById("matchaTable");
+      tr = table.getElementsByTagName("tr");
+      
+      // Loop through all table rows, except the header
+      for (i = 1; i < tr.length; i++) {
+        // Get cells we need to check
+        tdOrigin = tr[i].getElementsByTagName("td")[2]; // Origin column
+        
+        // Start by assuming this row should be shown
+        var showRow = true;
+        
+        // Check origin filter
+        if (originFilter !== "" && tdOrigin) {
+          if (tdOrigin.textContent.indexOf(originFilter) === -1) {
+            showRow = false;
+          }
+        }
+        
+        // Check price filter based on class
+        if (priceFilter !== "" && showRow) {
+          if (!tr[i].classList.contains(priceFilter)) {
+            showRow = false;
+          }
+        }
+        
+        // Check usage filter based on class
+        if (usageFilter !== "" && showRow) {
+          if (!tr[i].classList.contains(usageFilter)) {
+            showRow = false;
+          }
+        }
+        
+        // Show or hide the row based on our checks
+        if (showRow) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
