@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matcha Tea Comparison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f2f2f2;
+      position: sticky;
+      top: 0;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .sorting-buttons {
+      margin-bottom: 15px;
+    }
+    .sorting-buttons button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sorting-buttons button:hover {
+      background-color: #45a049;
+    }
+    .search-container {
+      margin-bottom: 15px;
+    }
+    .search-container input {
+      padding: 8px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Matcha Tea Comparison Spreadsheet</h1>
+  
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for any text..." onkeyup="searchTable()">
+  </div>
+  
+  <div class="sorting-buttons">
+    <button onclick="sortTable(0)">Sort by Brand</button>
+    <button onclick="sortTable(1)">Sort by Product</button>
+    <button onclick="sortTable(2)">Sort by Origin</button>
+    <button onclick="sortTable(4)">Sort by Price (Low to High)</button>
+  </div>
+  
+  <div class="container">
+    <table id="matchaTable">
+      <thead>
+        <tr>
+          <th>Brand / Store</th>
+          <th>Specific Matcha Example</th>
+          <th>Origin Focus</th>
+          <th>Umami Flavor Profile Description</th>
+          <th>Approx. Cost (USD)</th>
+          <th>Shopping URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ippodo Tea Co.</td>
+          <td>Ummon-no-mukashi</td>
+          <td>Kyoto (Uji)</td>
+          <td>Deep, rich, profound umami. Very smooth, almost creamy texture with lingering savory sweetness. Benchmark high-end umami.</td>
+          <td>~$45-55 (20g) / ~$85-100 (40g)</td>
+          <td><a href="https://ippodotea.com/" target="_blank">https://ippodotea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Ippodo Tea Co.</td>
+          <td>Kan-no-shiro</td>
+          <td>Kyoto (Uji)</td>
+          <td>Balanced, mellow umami with noticeable sweetness and a refreshing finish. Less intense than Ummon, very smooth, good daily koicha.</td>
+          <td>~$28-35 (20g) / ~$48-55 (40g)</td>
+          <td><a href="https://ippodotea.com/" target="_blank">https://ippodotea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Ippodo Tea Co.</td>
+          <td>Sayaka-no-mukashi</td>
+          <td>Kyoto (Uji)</td>
+          <td>Bright, clean umami with gentle sweetness and minimal bitterness. Excellent smooth usucha (thin tea).</td>
+          <td>~$25-30 (20g) / ~$38-45 (40g)</td>
+          <td><a href="https://ippodotea.com/" target="_blank">https://ippodotea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Marukyu Koyamaen</td>
+          <td>Unkaku</td>
+          <td>Kyoto (Uji)</td>
+          <td>Exceptionally deep, complex, velvety umami. Often wins awards. Rich, full-bodied, oceanic notes, minimal bitterness.</td>
+          <td>~$35-45 (20g) / ~$65-80 (40g)</td>
+          <td>Retailers like Sazen Tea, Hibiki-an, O-Cha. <a href="https://sazentea.com/" target="_blank">https://sazentea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Marukyu Koyamaen</td>
+          <td>Choan</td>
+          <td>Kyoto (Uji)</td>
+          <td>Strong, refined umami with creamy mouthfeel and a clean, long finish. Slightly less intense than Unkaku but very high quality.</td>
+          <td>~$30-38 (20g) / ~$55-65 (40g)</td>
+          <td>Retailers like Sazen Tea, Hibiki-an, O-Cha. <a href="https://sazentea.com/" target="_blank">https://sazentea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Marukyu Koyamaen</td>
+          <td>Wako</td>
+          <td>Kyoto (Uji)</td>
+          <td>Robust, well-rounded umami. Creamy texture, subtle sweetness, very satisfying daily ceremonial (usucha or koicha).</td>
+          <td>~$18-25 (20g) / ~$30-40 (40g)</td>
+          <td>Retailers like Sazen Tea, Hibiki-an, O-Cha. <a href="https://sazentea.com/" target="_blank">https://sazentea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Marukyu Koyamaen</td>
+          <td>Kinrin</td>
+          <td>Kyoto (Uji)</td>
+          <td>Pleasant, balanced umami with a slight vegetal note. Good entry-level ceremonial, smooth for usucha.</td>
+          <td>~$15-20 (20g) / ~$25-35 (40g)</td>
+          <td>Retailers like Sazen Tea, Hibiki-an, O-Cha. <a href="https://sazentea.com/" target="_blank">https://sazentea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Hibiki-an</td>
+          <td>Matcha Super Premium</td>
+          <td>Kyoto (Uji)</td>
+          <td>Strong, clear umami profile sourced directly from their Uji fields. Smooth texture with prominent sweet undertones.</td>
+          <td>~$30-35 (30g)</td>
+          <td><a href="https://www.hibiki-an.com/" target="_blank">https://www.hibiki-an.com/</a></td>
+        </tr>
+        <tr>
+          <td>Hibiki-an</td>
+          <td>Pinnacle Matcha</td>
+          <td>Kyoto (Uji)</td>
+          <td>Extremely rich, deep, complex umami. Velvety smooth, designed for koicha (thick tea), representing their highest grade.</td>
+          <td>~$50-60 (30g)</td>
+          <td><a href="https://www.hibiki-an.com/" target="_blank">https://www.hibiki-an.com/</a></td>
+        </tr>
+        <tr>
+          <td>Maiko no Cha</td>
+          <td>Premium Ceremonial Matcha (Gold)</td>
+          <td>Kyotanabe (Uji)</td>
+          <td>Smooth, satisfying umami with a bright green color and fresh, slightly sweet aroma. Balanced and approachable.</td>
+          <td>~$28-35 (30g)</td>
+          <td><a href="https://maiko.store/" target="_blank">https://maiko.store/</a></td>
+        </tr>
+        <tr>
+          <td>Horaido</td>
+          <td>Hatsu Mukashi</td>
+          <td>Kyoto (Uji)</td>
+          <td>Elegant, refined umami. Known for smooth texture and a clean, lingering sweet finish. Subtle complexity.</td>
+          <td>~$30-40 (20g) / ~$55-65 (40g)</td>
+          <td>Retailers like Thes du Japon or Yunomi: <a href="https://yunomi.life/" target="_blank">https://yunomi.life/</a></td>
+        </tr>
+        <tr>
+          <td>Hoshino Seichaen</td>
+          <td>Seijou no Shiro (Ceremonial)</td>
+          <td>Fukuoka (Yame)</td>
+          <td>Distinct Yame umami – rich, sweet undertones, sometimes described as slightly nutty or marine. Very smooth.</td>
+          <td>~$25-35 (20g)</td>
+          <td>Retailers like Sazen Tea, O-Cha: <a href="https://www.o-cha.com/" target="_blank">https://www.o-cha.com/</a></td>
+        </tr>
+        <tr>
+          <td>Hoshino Seichaen</td>
+          <td>Suisho no Mukashi (Premium)</td>
+          <td>Fukuoka (Yame)</td>
+          <td>Deeper, more complex umami than Seijou. Creamy texture, lingering sweetness, characteristic Yame profile.</td>
+          <td>~$35-45 (20g)</td>
+          <td>Retailers like Sazen Tea, O-Cha: <a href="https://www.o-cha.com/" target="_blank">https://www.o-cha.com/</a></td>
+        </tr>
+        <tr>
+          <td>Rishouen Tea</td>
+          <td>Narino</td>
+          <td>Kyoto (Uji)</td>
+          <td>Delicate yet present umami, very smooth with a slight floral or fresh vegetal note. Clean finish.</td>
+          <td>~$30-40 (20g)</td>
+          <td>Via specialized retailers like Thes du Japon, Yunomi.</td>
+        </tr>
+        <tr>
+          <td>Azuma Tea Garden</td>
+          <td>Gokou Cultivar Matcha</td>
+          <td>Kyoto (Uji)</td>
+          <td>Unique Gokou cultivar umami - often described as milky, creamy, very sweet undertones alongside the savory notes.</td>
+          <td>~$25-35 (20g)</td>
+          <td>Via specialized retailers like Yunomi: <a href="https://yunomi.life/" target="_blank">https://yunomi.life/</a></td>
+        </tr>
+        <tr>
+          <td>O-Cha.com</td>
+          <td>Uji Matcha: Kiwami</td>
+          <td>Kyoto (Uji)</td>
+          <td>Their highest grade. Rich, deep umami, very smooth, minimal astringency, designed for discerning palates (koicha suitable).</td>
+          <td>~$35-40 (30g)</td>
+          <td><a href="https://www.o-cha.com/" target="_blank">https://www.o-cha.com/</a></td>
+        </tr>
+        <tr>
+          <td>O-Cha.com</td>
+          <td>Uji Matcha: Chiyo Mukashi</td>
+          <td>Kyoto (Uji)</td>
+          <td>Solid ceremonial grade umami, well-balanced between savory and sweet notes. Smooth texture, good for daily usucha.</td>
+          <td>~$25-30 (30g)</td>
+          <td><a href="https://www.o-cha.com/" target="_blank">https://www.o-cha.com/</a></td>
+        </tr>
+        <tr>
+          <td>Yamamasa Koyamaen</td>
+          <td>Tennozan</td>
+          <td>Kyoto (Uji)</td>
+          <td>Very high-grade, exceptionally smooth and rich umami. Deep green color, complex savory notes with lingering sweetness.</td>
+          <td>~$40-50 (20g) / ~$75-90 (40g)</td>
+          <td>Retailers like Sazen Tea, Yunomi. Search: <a href="https://sazentea.com/" target="_blank">https://sazentea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Yamamasa Koyamaen</td>
+          <td>Ogurayama</td>
+          <td>Kyoto (Uji)</td>
+          <td>Excellent balance of rich umami and sweetness. Creamy texture, well-regarded standard for high-quality koicha/usucha.</td>
+          <td>~$28-35 (20g) / ~$50-60 (40g)</td>
+          <td>Retailers like Sazen Tea, Yunomi. Search: <a href="https://sazentea.com/" target="_blank">https://sazentea.com/</a></td>
+        </tr>
+        <tr>
+          <td>Tsujiri</td>
+          <td>Matcha Tsuki no Shiro</td>
+          <td>Kyoto (Uji)</td>
+          <td>Smooth, balanced umami with a gentle sweetness and clean aftertaste. A reliable choice from a historic Uji tea house.</td>
+          <td>~$20-28 (20g) / ~$35-45 (40g)</td>
+          <td>Official site (Japan) or Int'l retailers like Amazon Japan, Rakuten Global Market.</td>
+        </tr>
+        <tr>
+          <td>Nakamura Tokichi</td>
+          <td>Uji Hikari Matcha</td>
+          <td>Kyoto (Uji)</td>
+          <td>Bright, vibrant umami associated with the Uji Hikari cultivar. Fresh, slightly vegetal notes complementing the savory depth.</td>
+          <td>~$30-40 (30g)</td>
+          <td>Often via their own stores/cafes in Japan or specialty retailers. Check main site for info.</td>
+        </tr>
+        <tr>
+          <td>Yunomi (Retailer)</td>
+          <td>Various Single Origin/Cultivar</td>
+          <td>Various (Japan)</td>
+          <td>Highly variable based on farm/cultivar. Often features unique profiles, e.g., intense savory, nutty, floral, oceanic umami.</td>
+          <td>~$20-60+ (20g/30g)</td>
+          <td><a href="https://yunomi.life/" target="_blank">https://yunomi.life/</a> (Browse their extensive Matcha section)</td>
+        </tr>
+        <tr>
+          <td>Ikkyu</td>
+          <td>Grand Cru Matcha Kirameki</td>
+          <td>Fukuoka (Yame)</td>
+          <td>Intense, sweet Yame umami with nutty and marine notes. Very smooth, low bitterness, high quality from Fukuoka region.</td>
+          <td>~$35-45 (30g)</td>
+          <td><a href="https://ikkyu-japan.com/" target="_blank">https://ikkyu-japan.com/</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("matchaTable");
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    
+    function searchTable() {
+      // Declare variables
+      var input, filter, table, tr, td, i, j, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("matchaTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 1; i < tr.length; i++) {
+        tr[i].style.display = "none"; // Hide by default
+        
+        // Loop through all table columns for each row
+        for (j = 0; j < tr[i].cells.length; j++) {
+          td = tr[i].cells[j];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = ""; // Show if match found in any column
+              break; // Stop checking other columns for this row
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
