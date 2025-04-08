@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Matcha Tea Comparison Guide (No Images)</title>
+  <title>Matcha Tea Comparison Shopping Guide</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -140,7 +140,8 @@
       padding-bottom: 15px;
       margin-bottom: 25px; /* Increased margin */
     }
-    .info-box {
+    /* START: Original Info Box Styling (Top Box) - Keep this distinct */
+    .info-box-top {
       background-color: #f7fbf7;
       border: 1px solid #007a3d;
       padding: 20px; /* Increased padding */
@@ -148,12 +149,14 @@
       border-radius: 8px; /* More rounded corners */
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
-    .info-box h3 {
+    .info-box-top h3 {
       margin-top: 0;
       margin-bottom: 15px; /* Added margin */
       color: #004d00;
       font-weight: 600;
     }
+    /* END: Original Info Box Styling */
+
     .grade-legend {
       display: flex;
       flex-wrap: wrap;
@@ -178,12 +181,104 @@
     .hidden {
       display: none;
     }
+
+    /* --- START: Updated/New Styles for Bottom Info Box --- */
+
+    .info-box { /* This now applies ONLY to the bottom box */
+      background-color: #f8fbf8; /* Slightly softer background */
+      border: 1px solid #d0e0d0; /* Softer border color */
+      border-left: 5px solid #005a2e; /* Accent border */
+      padding: 25px 30px; /* Increased padding */
+      margin-top: 40px; /* More space above */
+      margin-bottom: 30px;
+      border-radius: 6px; /* Slightly less round */
+      box-shadow: 0 3px 8px rgba(0, 90, 46, 0.08); /* Subtle shadow */
+    }
+
+    .info-box h2 { /* New style for the main heading */
+      font-size: 1.6em;
+      color: #004d00;
+      margin-top: 0;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0f0e0; /* Lighter bottom border */
+      font-weight: 600;
+    }
+    .info-box h2::before { /* Subtle decorative element */
+       content: "🍵 "; /* Unicode tea character */
+       color: #007a3d;
+       margin-right: 5px;
+    }
+
+    .info-box h3 { /* Styling for sub-headings */
+      font-size: 1.25em;
+      color: #005a2e;
+      margin-top: 30px; /* Space above sub-headings */
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e5eee5;
+      font-weight: 600;
+    }
+    .info-box h3::before { /* Subtle decorative element */
+        content: "🌿 "; /* Unicode leaf character */
+        color: #007a3d;
+        margin-right: 6px;
+        font-size: 0.9em;
+    }
+
+    /* Style for h4 within the bottom info box */
+    .info-box h4 {
+      font-size: 1.1em;
+      color: #005a2e;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+
+    .info-box p, .info-box li {
+      font-size: 0.98em; /* Slightly adjust text size */
+      line-height: 1.8; /* Increase line spacing slightly more */
+      color: #444; /* Slightly darker text for readability */
+    }
+
+    .info-box ol, .info-box ul {
+      padding-left: 25px; /* Indentation for lists */
+      margin-bottom: 20px;
+    }
+
+    .info-box li {
+      margin-bottom: 10px; /* Space between list items */
+    }
+
+    .info-box strong {
+      color: #005a2e; /* Make strong text use theme color */
+      font-weight: 600;
+    }
+
+    .info-box .divider { /* Style for horizontal rule */
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 90, 46, 0), rgba(0, 90, 46, 0.3), rgba(0, 90, 46, 0));
+      margin: 35px 0;
+    }
+
+    .info-box .storage-tip { /* Specific styling for storage emphasis */
+        background-color: #eaf3ea;
+        padding: 15px;
+        border-radius: 4px;
+        border-left: 3px solid #b8dcb8;
+        margin-top: 15px;
+    }
+
+    /* --- END: Updated/New Styles for Bottom Info Box --- */
+
   </style>
 </head>
 <body>
   <h1>Enhanced Matcha Tea Comparison Guide</h1>
 
-  <div class="info-box">
+  <div class="info-box-top"> <!-- Changed class to distinguish from bottom box -->
     <h3>Understanding Japanese Matcha Grades & Types</h3>
     <p>This guide compares ceremonial grade matcha, primarily intended for drinking. Quality varies significantly based on harvest time, shading duration, cultivar, and processing.</p>
     <ul>
@@ -568,35 +663,60 @@
     </table>
   </div>
 
+  <!-- START: New Bottom Info Box Content -->
   <div class="info-box">
-    <h3>Matcha Brewing & Storage Guide</h3>
-    <p><strong>Essential Tools:</strong> Chawan (bowl), Chasen (bamboo whisk), Chashaku (scoop - optional), small sifter.</p>
-    <p><strong>Traditional Usucha (Thin Tea):</strong></p>
+    <h2>Exploring the World of Matcha</h2>
+
+    <h3>The Art of Preparation</h3>
+    <p>Preparing matcha traditionally is a mindful practice. Using the right tools and technique enhances the experience and flavor.</p>
+    <p><strong>Essential Tools:</strong> Chawan (bowl), Chasen (bamboo whisk), Chashaku (bamboo scoop - optional), small sifter (Furui).</p>
+
+    <h4>Usucha (Thin Tea) - Everyday Preparation:</h4>
     <ol>
-      <li>Warm the Chawan with hot water, then discard water and dry bowl.</li>
-      <li>Sift 1.5-2g (approx. 1-2 Chashaku scoops or ½-¾ tsp) matcha into the bowl to remove clumps.</li>
-      <li>Add 70-80ml (2.5-3oz) hot water. Ideal temperature: **175°F (80°C)**. Avoid boiling water which scorches the matcha.</li>
-      <li>Whisk vigorously in a "W" or "M" motion using your wrist (not arm) until a fine, consistent froth covers the surface. Aim for small bubbles.</li>
-      <li>Consume immediately.</li>
+      <li><strong>Warm the Bowl:</strong> Pour hot water into the Chawan to warm it. Discard water and thoroughly dry the bowl with a clean cloth (Chakin, if available). This prevents the matcha from cooling too quickly.</li>
+      <li><strong>Sift the Matcha:</strong> Measure 1.5-2g (approx. 1-2 Chashaku scoops or ½-¾ tsp) of matcha. Sift it directly into the warm, dry Chawan using a fine mesh sifter. This crucial step removes clumps and ensures a smooth, frothy tea.</li>
+      <li><strong>Add Water:</strong> Pour 70-80ml (2.5-3oz) of hot, but not boiling, water over the matcha. The ideal temperature is **~175°F (80°C)**. Boiling water will scorch the delicate matcha, creating bitterness.</li>
+      <li><strong>Whisk:</strong> Hold the Chawan firmly. Using your wrist (not your whole arm), whisk the matcha vigorously in a rapid "W" or "M" pattern, moving back and forth quickly across the entire bowl. Avoid scraping the bottom. Continue until the tea is covered with a layer of fine, consistent foam (like crema on espresso).</li>
+      <li><strong>Finish:</strong> Gently lift the Chasen from the center of the foam. Enjoy immediately, savoring the aroma and flavor.</li>
     </ol>
-    <p><strong>Traditional Koicha (Thick Tea - for highest grades only):</strong></p>
-    <ol>
-      <li>Warm and dry the Chawan.</li>
-      <li>Sift 3-4g (approx. 2-3 Chashaku scoops or 1-1.5 tsp) matcha into the bowl.</li>
-      <li>Add only 30-40ml (1-1.5oz) hot water, again around **175°F (80°C)**.</li>
-      <li>Slowly knead the matcha and water with the Chasen using gentle circular or back-and-forth motions until smooth, thick, and glossy like melted chocolate. Do *not* create froth.</li>
-      <li>Consume slowly, savoring the intense flavor. Often shared in formal ceremonies.</li>
-    </ol>
-    <p><strong>Modern Preparation:</strong> For lattes, smoothies, or cold brew, adjust quantities (often 1-2 tsp per serving) based on desired strength and other ingredients. Sifting is still recommended. Use ceremonial grade for best flavor even in mixed drinks, though high-quality culinary grade can work for lattes/baking.</p>
-    <p><strong>Storage Tip:</strong> Matcha is delicate and degrades quickly when exposed to air, light, heat, and moisture.
-      <ul>
-          <li>Keep in the original airtight container (or transfer to one).</li>
-          <li>Store in a cool, dark place. **Refrigeration is highly recommended after opening** to preserve freshness and flavor.</li>
-          <li>If refrigerated, allow the container to reach room temperature *before* opening to prevent condensation.</li>
-          <li>Use within a few weeks to a month after opening for optimal flavor.</li>
-      </ul>
-    </p>
+
+    <h4>Koicha (Thick Tea) - For Highest Quality Matcha:</h4>
+    <ul>
+      <li>Requires premium grade matcha specifically suitable for Koicha (check product description).</li>
+      <li>Use double the matcha (<strong>3-4g</strong> or ~3-4 Chashaku scoops) and half the water (<strong>30-40ml</strong> or 1-1.5oz) at ~175°F (80°C).</li>
+      <li>After sifting, slowly add the water. Instead of whisking rapidly, use the Chasen to gently *knead* the matcha and water together in slow, deliberate circular and linear motions.</li>
+      <li>The goal is a thick, smooth, glossy consistency like melted chocolate, with **no foam**.</li>
+      <li>Koicha offers an intense, concentrated experience of the matcha's umami and sweetness. It's traditionally shared among guests in formal tea ceremonies.</li>
+    </ul>
+
+    <hr class="divider">
+
+    <h3>Understanding Flavor & Aroma</h3>
+    <p>High-quality ceremonial matcha offers a complex sensory experience:</p>
+    <ul>
+      <li><strong>Umami:</strong> The defining characteristic. A pleasant, savory, broth-like "fifth taste" derived from amino acids (especially L-Theanine) developed during the shading process. It provides depth and richness.</li>
+      <li><strong>Sweetness:</strong> Natural sweetness, often subtle, balances the umami. Can range from vegetal sweetness to almost nutty or creamy notes, depending on the cultivar and processing.</li>
+      <li><strong>Texture:</strong> Should be smooth, creamy, and full-bodied due to the fine stone-grinding. Absence of grittiness is key.</li>
+      <li><strong>Bitterness/Astringency:</strong> Should be minimal to non-existent in high grades. Lower grades or improperly prepared matcha (e.g., with boiling water) will exhibit more bitterness. A slight, pleasant astringency can add structure.</li>
+      <li><strong>Flavor Notes:</strong> Beyond umami and sweetness, you might detect notes of fresh grass, steamed greens (spinach, kale), nuts (pistachio, almond), or marine hints (seaweed, ocean air). Yame matcha often has more pronounced nutty/marine notes compared to Uji's classic vegetal profile.</li>
+      <li><strong>Aroma:</strong> Fresh and inviting. Often described as sweet, grassy, vegetal, marine, or sometimes with subtle roasted notes from the firing process (hi-ire).</li>
+    </ul>
+
+    <hr class="divider">
+
+    <h3>Essential Storage</h3>
+    <p>Matcha is extremely sensitive to its environment. Proper storage is vital to maintain its vibrant color, aroma, and flavor.</p>
+    <div class="storage-tip">
+        <ul>
+          <li><strong>Airtight Container:</strong> Always keep matcha sealed in an airtight container to prevent oxidation and absorption of odors. The original tin is often suitable if it seals well.</li>
+          <li><strong>Cool & Dark:</strong> Store away from heat, light, and moisture. A cupboard away from the stove or window is good.</li>
+          <li><strong>Refrigerate After Opening:</strong> For optimal freshness, store opened matcha in the refrigerator.</li>
+          <li><strong>Warm Before Use (if refrigerated):</strong> Allow the sealed container to return to room temperature *before* opening it. This prevents condensation from forming inside and clumping the matcha.</li>
+          <li><strong>Use Promptly:</strong> Matcha is best consumed within a few weeks to a month after opening for the peak experience. Its quality degrades relatively quickly compared to other teas.</li>
+        </ul>
+    </div>
   </div>
+  <!-- END: New Bottom Info Box Content -->
 
   <script>
     function sortTable(n) {
@@ -745,7 +865,10 @@
 
         // Check price filter based on class
         if (priceFilter !== "" && showRow) {
-          if (!rowClasses.contains(priceFilter)) {
+          // Check if the row has the price tier class OR the generic price tier class in the TD
+          let priceTd = tr[i].getElementsByTagName("td")[4]; // Price TD index 4
+          let priceTdHasClass = priceTd ? priceTd.classList.contains(priceFilter) : false;
+          if (!rowClasses.contains(priceFilter) && !priceTdHasClass ) { // Check both row and specific TD for robustness
             showRow = false;
           }
         }
@@ -780,6 +903,84 @@
         tr[i].style.display = showRow ? "" : "none";
       }
     }
+
+    // Slightly adjusted price filter logic to check TD class as well
+    // Make sure price classes (premium, high, mid, entry) are correctly applied to either the TR or the TD[4]
+     function filterTable(calledFromSearch = false) {
+      var originFilter, priceFilter, usageFilter, table, tr, tdOrigin, i;
+      originFilter = document.getElementById("originFilter").value;
+      priceFilter = document.getElementById("priceFilter").value;
+      usageFilter = document.getElementById("usageFilter").value;
+      var searchInput = document.getElementById("searchInput");
+      var searchFilter = calledFromSearch ? "" : searchInput.value.toUpperCase();
+
+      table = document.getElementById("matchaTable");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 1; i < tr.length; i++) {
+        var row = tr[i];
+        tdOrigin = row.getElementsByTagName("td")[2];
+        var priceTd = row.getElementsByTagName("td")[4]; // Price TD index 4
+        var rowClasses = row.classList;
+        var showRow = true;
+
+        // Origin Filter
+        if (originFilter !== "" && tdOrigin) {
+          if (!tdOrigin.textContent.includes(originFilter)) {
+            showRow = false;
+          }
+        }
+
+        // Price Filter - Check both row class and TD class for the price tier
+        if (priceFilter !== "" && showRow) {
+          let hasPriceClassOnRow = rowClasses.contains(priceFilter);
+          let hasPriceClassOnTd = priceTd && priceTd.classList.contains(priceFilter);
+          if (!hasPriceClassOnRow && !hasPriceClassOnTd) {
+             // Check the text content as a fallback for cases where class might be missed
+             let priceText = priceTd ? priceTd.textContent.toLowerCase() : "";
+             // This is a less reliable fallback check
+             if (priceText.includes("premium") && priceFilter === "premium" ||
+                 priceText.includes("high") && priceFilter === "high" ||
+                 (priceText.includes("mid") || priceText.includes("mid-high")) && priceFilter === "mid" ||
+                 (priceText.includes("entry") || priceText.includes("< $")) && priceFilter === "entry" ) {
+                 // Matches text, keep showing
+             } else {
+                  showRow = false; // Does not match class or text fallback
+             }
+          }
+        }
+
+
+        // Usage Filter
+        if (usageFilter !== "" && showRow) {
+          if (!rowClasses.contains(usageFilter)) {
+            showRow = false;
+          }
+        }
+
+        // Search Filter (if applicable)
+        if (!calledFromSearch && showRow && searchFilter !== "") {
+          var foundMatch = false;
+          for (var j = 0; j < row.cells.length; j++) {
+            var td = row.cells[j];
+            if (td) {
+              var txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(searchFilter) > -1) {
+                foundMatch = true;
+                break;
+              }
+            }
+          }
+          if (!foundMatch) {
+            showRow = false;
+          }
+        }
+
+        // Set display
+        row.style.display = showRow ? "" : "none";
+      }
+    }
+
 
     // Initial filter application on load might be useful if default filters are set
     // filterTable(); // Uncomment if you want filters applied on page load
