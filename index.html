@@ -273,9 +273,371 @@
 
     /* --- END: Updated/New Styles for Bottom Info Box --- */
 
+    /* --- START: Mobile Card Layout --- */
+    .cards-container {
+      display: none; /* Hidden by default, shown on mobile */
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .matcha-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    .matcha-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card-header {
+      border-bottom: 2px solid #e0f0e0;
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+    }
+
+    .card-brand {
+      font-weight: 600;
+      color: #005a2e;
+      font-size: 1.1em;
+      margin-bottom: 4px;
+    }
+
+    .card-product {
+      font-size: 1.05em;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .card-price {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .card-section {
+      margin: 12px 0;
+    }
+
+    .card-section-title {
+      font-weight: 600;
+      color: #005a2e;
+      font-size: 0.9em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-section-content {
+      font-size: 0.95em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #007a3d;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .card-link:hover {
+      background-color: #005a2e;
+    }
+
+    /* Mobile Filter Drawer */
+    .mobile-filter-toggle {
+      display: none;
+      width: 100%;
+      padding: 12px 20px;
+      background-color: #007a3d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .mobile-filter-toggle:active {
+      background-color: #005a2e;
+    }
+
+    .filter-drawer {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      max-width: 350px;
+      height: 100vh;
+      background: white;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      transition: left 0.3s ease-in-out;
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .filter-drawer.open {
+      left: 0;
+    }
+
+    .filter-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    .filter-drawer-title {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #005a2e;
+    }
+
+    .filter-close-btn {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #666;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      display: none;
+    }
+
+    .filter-drawer-overlay.open {
+      display: block;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-weight: 600;
+      color: #005a2e;
+      margin-bottom: 8px;
+      font-size: 0.95em;
+    }
+
+    .filter-group select,
+    .filter-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    /* --- END: Mobile Card Layout --- */
+
+    /* --- START: Accessibility Improvements --- */
+
+    /* Focus indicators for keyboard navigation */
+    *:focus {
+      outline: 3px solid #007a3d;
+      outline-offset: 2px;
+    }
+
+    button:focus,
+    a:focus,
+    input:focus,
+    select:focus {
+      outline: 3px solid #007a3d;
+      outline-offset: 2px;
+    }
+
+    /* Skip to content link for screen readers */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #007a3d;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 0 0 5px 0;
+      z-index: 2000;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Ensure minimum touch target size on mobile */
+    @media (max-width: 768px) {
+      button,
+      a,
+      input,
+      select {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+
+    /* --- END: Accessibility Improvements --- */
+
+    /* --- START: Responsive Media Queries --- */
+
+    @media (max-width: 768px) {
+      body {
+        margin: 10px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+
+      /* Hide table on mobile */
+      .container {
+        display: none;
+      }
+
+      /* Show cards on mobile */
+      .cards-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Show mobile filter button */
+      .mobile-filter-toggle {
+        display: block;
+      }
+
+      /* Hide desktop filters, show in drawer */
+      .controls-container > .search-container {
+        margin-bottom: 10px;
+      }
+
+      .controls-container > .filter-container {
+        display: none;
+      }
+
+      .controls-container > .sorting-buttons {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+      }
+
+      .sorting-buttons {
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+
+      .sorting-buttons button {
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 8px 14px;
+      }
+
+      /* Info boxes */
+      .info-box-top,
+      .info-box {
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      .info-box h2,
+      .info-box-top h3 {
+        font-size: 1.2em;
+      }
+
+      .info-box h3 {
+        font-size: 1.1em;
+      }
+
+      /* Search input */
+      .search-container input {
+        max-width: 100%;
+        font-size: 16px; /* Prevent zoom on iOS */
+      }
+
+      /* Grade legend */
+      .grade-legend {
+        gap: 12px;
+      }
+
+      .grade-item {
+        font-size: 0.85em;
+      }
+    }
+
+    /* Tablet view */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .container {
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 1000px;
+      }
+
+      th, td {
+        padding: 10px 8px;
+        font-size: 0.9em;
+      }
+    }
+
+    /* Desktop - ensure table is visible */
+    @media (min-width: 769px) {
+      .cards-container {
+        display: none;
+      }
+
+      .mobile-filter-toggle {
+        display: none;
+      }
+
+      .filter-drawer {
+        display: none;
+      }
+    }
+
+    /* --- END: Responsive Media Queries --- */
+
   </style>
 </head>
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <h1>Enhanced Matcha Tea Comparison Guide</h1>
 
   <div class="info-box-top"> <!-- Changed class to distinguish from bottom box -->
@@ -297,13 +659,58 @@
     </ul>
   </div>
 
-  <div class="controls-container">
+  <!-- Mobile Filter Toggle -->
+  <button class="mobile-filter-toggle" id="mobileFilterBtn" aria-label="Open filters">
+    🔍 Filters & Sort
+  </button>
+
+  <!-- Filter Drawer for Mobile -->
+  <div class="filter-drawer-overlay" id="filterOverlay" aria-hidden="true"></div>
+  <div class="filter-drawer" id="filterDrawer" role="dialog" aria-labelledby="filter-drawer-title" aria-hidden="true">
+    <div class="filter-drawer-header">
+      <h2 class="filter-drawer-title" id="filter-drawer-title">Filters</h2>
+      <button class="filter-close-btn" id="filterCloseBtn" aria-label="Close filters">&times;</button>
+    </div>
+    <div class="filter-group">
+      <label for="mobileOriginFilter">Origin</label>
+      <select id="mobileOriginFilter">
+        <option value="">All Origins</option>
+        <option value="Kyoto (Uji)">Kyoto (Uji)</option>
+        <option value="Fukuoka (Yame)">Fukuoka (Yame)</option>
+        <option value="Kyotanabe">Kyotanabe (Part of Uji region)</option>
+        <option value="Various">Various/Blended</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="mobilePriceFilter">Price Range</label>
+      <select id="mobilePriceFilter">
+        <option value="">All Price Ranges</option>
+        <option value="premium">Premium Tier ($40+/20g)</option>
+        <option value="high">High Tier ($30-40/20g)</option>
+        <option value="mid">Mid Tier ($20-30/20g)</option>
+        <option value="entry">Entry Tier (<$20/20g)</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="mobileUsageFilter">Usage Type</label>
+      <select id="mobileUsageFilter">
+        <option value="">All Usage Types</option>
+        <option value="koicha">Suitable for Koicha</option>
+        <option value="usucha">Best for Usucha</option>
+        <option value="daily">Good Daily Drinking</option>
+        <option value="ceremonial">Ceremonial Focus</option>
+        <option value="award">Award/Competition Level</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="controls-container" id="main-content">
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Search brand, flavor, origin, cultivar..." onkeyup="searchTable()">
+      <input type="text" id="searchInput" placeholder="Search brand, flavor, origin, cultivar..." onkeyup="searchTable()" aria-label="Search matcha products">
     </div>
 
     <div class="filter-container">
-      <select id="originFilter" onchange="filterTable()">
+      <select id="originFilter" onchange="filterTable()" aria-label="Filter by origin">
         <option value="">All Origins</option>
         <option value="Kyoto (Uji)">Kyoto (Uji)</option>
         <option value="Fukuoka (Yame)">Fukuoka (Yame)</option>
@@ -311,7 +718,7 @@
         <option value="Various">Various/Blended</option>
       </select>
 
-      <select id="priceFilter" onchange="filterTable()">
+      <select id="priceFilter" onchange="filterTable()" aria-label="Filter by price range">
         <option value="">All Price Ranges</option>
         <option value="premium">Premium Tier ($40+/20g)</option>
         <option value="high">High Tier ($30-40/20g)</option>
@@ -319,7 +726,7 @@
         <option value="entry">Entry Tier (<$20/20g)</option>
       </select>
 
-      <select id="usageFilter" onchange="filterTable()">
+      <select id="usageFilter" onchange="filterTable()" aria-label="Filter by usage type">
         <option value="">All Usage Types</option>
         <option value="koicha">Suitable for Koicha</option>
         <option value="usucha">Best for Usucha</option>
@@ -329,12 +736,12 @@
       </select>
     </div>
 
-    <div class="sorting-buttons">
-      <button onclick="sortTable(0)">Sort by Brand</button>
-      <button onclick="sortTable(1)">Sort by Product</button>
-      <button onclick="sortTable(2)">Sort by Origin</button>
-      <button onclick="sortTable(4)">Sort by Price</button>
-      <button onclick="sortTable(7)">Sort by Cultivation</button>
+    <div class="sorting-buttons" role="group" aria-label="Sort options">
+      <button onclick="sortTable(0)" aria-label="Sort by brand">Sort by Brand</button>
+      <button onclick="sortTable(1)" aria-label="Sort by product">Sort by Product</button>
+      <button onclick="sortTable(2)" aria-label="Sort by origin">Sort by Origin</button>
+      <button onclick="sortTable(4)" aria-label="Sort by price">Sort by Price</button>
+      <button onclick="sortTable(7)" aria-label="Sort by cultivation">Sort by Cultivation</button>
     </div>
   </div>
 
@@ -663,6 +1070,11 @@
     </table>
   </div>
 
+  <!-- Mobile Cards Container -->
+  <div class="cards-container" id="cardsContainer" role="list" aria-label="Matcha products">
+    <!-- Cards will be dynamically generated by JavaScript -->
+  </div>
+
   <!-- START: New Bottom Info Box Content -->
   <div class="info-box">
     <h2>Exploring the World of Matcha</h2>
@@ -840,73 +1252,6 @@
     }
 
     function filterTable(calledFromSearch = false) {
-      var originFilter, priceFilter, usageFilter, table, tr, tdOrigin, tdPriceClass, tdUsageClass, i;
-      originFilter = document.getElementById("originFilter").value;
-      priceFilter = document.getElementById("priceFilter").value;
-      usageFilter = document.getElementById("usageFilter").value;
-      var searchInput = document.getElementById("searchInput");
-      var searchFilter = calledFromSearch ? "" : searchInput.value.toUpperCase(); // Get search term only if NOT called from search itself
-
-      table = document.getElementById("matchaTable");
-      tr = table.getElementsByTagName("tr");
-
-      for (i = 1; i < tr.length; i++) { // Start from 1 to skip header row
-        tdOrigin = tr[i].getElementsByTagName("td")[2]; // Origin column index 2
-        var rowClasses = tr[i].classList;
-        var showRow = true;
-
-        // Check origin filter
-        if (originFilter !== "" && tdOrigin) {
-          // Use textContent and check if it includes the filter value
-          if (!tdOrigin.textContent.includes(originFilter)) {
-            showRow = false;
-          }
-        }
-
-        // Check price filter based on class
-        if (priceFilter !== "" && showRow) {
-          // Check if the row has the price tier class OR the generic price tier class in the TD
-          let priceTd = tr[i].getElementsByTagName("td")[4]; // Price TD index 4
-          let priceTdHasClass = priceTd ? priceTd.classList.contains(priceFilter) : false;
-          if (!rowClasses.contains(priceFilter) && !priceTdHasClass ) { // Check both row and specific TD for robustness
-            showRow = false;
-          }
-        }
-
-        // Check usage filter based on class
-        if (usageFilter !== "" && showRow) {
-           if (!rowClasses.contains(usageFilter)) {
-            showRow = false;
-          }
-        }
-
-        // If called from filter change (not search), and row is still visible, apply search filter
-        if (!calledFromSearch && showRow && searchFilter !== "") {
-            var foundMatch = false;
-            for (var j = 0; j < tr[i].cells.length; j++) {
-                var td = tr[i].cells[j];
-                if (td) {
-                    var txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(searchFilter) > -1) {
-                        foundMatch = true;
-                        break;
-                    }
-                }
-            }
-            if (!foundMatch) {
-                showRow = false;
-            }
-        }
-
-
-        // Show or hide the row
-        tr[i].style.display = showRow ? "" : "none";
-      }
-    }
-
-    // Slightly adjusted price filter logic to check TD class as well
-    // Make sure price classes (premium, high, mid, entry) are correctly applied to either the TR or the TD[4]
-     function filterTable(calledFromSearch = false) {
       var originFilter, priceFilter, usageFilter, table, tr, tdOrigin, i;
       originFilter = document.getElementById("originFilter").value;
       priceFilter = document.getElementById("priceFilter").value;
@@ -984,6 +1329,201 @@
 
     // Initial filter application on load might be useful if default filters are set
     // filterTable(); // Uncomment if you want filters applied on page load
+
+    // ===== MOBILE CARDS GENERATION =====
+    function generateCards() {
+      const table = document.getElementById('matchaTable');
+      const cardsContainer = document.getElementById('cardsContainer');
+      const rows = table.getElementsByTagName('tr');
+
+      // Clear existing cards
+      cardsContainer.innerHTML = '';
+
+      // Start from index 1 to skip header row
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        if (row.style.display === 'none') continue; // Skip hidden rows
+
+        const cells = row.getElementsByTagName('td');
+        if (cells.length < 10) continue;
+
+        // Extract data from table cells
+        const brand = cells[0].textContent.trim();
+        const product = cells[1].textContent.trim();
+        const origin = cells[2].textContent.trim();
+        const flavor = cells[3].textContent.trim();
+        const price = cells[4].innerHTML.trim();
+        const usage = cells[5].innerHTML.trim();
+        const grade = cells[6].textContent.trim();
+        const cultivation = cells[7].textContent.trim();
+        const colorAroma = cells[8].textContent.trim();
+        const shopping = cells[9].innerHTML.trim();
+
+        // Get price tier class from the cell
+        const priceTierClass = cells[4].className.split(' ').find(c => ['premium', 'high', 'mid', 'entry'].includes(c)) || 'mid';
+
+        // Create card element
+        const card = document.createElement('div');
+        card.className = 'matcha-card';
+        card.setAttribute('role', 'listitem');
+
+        card.innerHTML = `
+          <div class="card-header">
+            <div class="card-brand">${brand}</div>
+            <div class="card-product">${product}</div>
+          </div>
+
+          <div class="card-price price-tier ${priceTierClass}">${price}</div>
+
+          <div class="card-section">
+            <div class="card-section-title">Origin</div>
+            <div class="card-section-content">${origin}</div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Flavor Profile</div>
+            <div class="card-section-content">${flavor}</div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Usage</div>
+            <div class="card-tags">${usage}</div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Grade Level</div>
+            <div class="card-section-content">${grade}</div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Cultivation</div>
+            <div class="card-section-content">${cultivation}</div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Color & Aroma</div>
+            <div class="card-section-content">${colorAroma}</div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Where to Buy</div>
+            <div class="card-section-content">${shopping}</div>
+          </div>
+        `;
+
+        cardsContainer.appendChild(card);
+      }
+    }
+
+    // ===== MOBILE FILTER DRAWER =====
+    const mobileFilterBtn = document.getElementById('mobileFilterBtn');
+    const filterDrawer = document.getElementById('filterDrawer');
+    const filterOverlay = document.getElementById('filterOverlay');
+    const filterCloseBtn = document.getElementById('filterCloseBtn');
+
+    function openFilterDrawer() {
+      filterDrawer.classList.add('open');
+      filterOverlay.classList.add('open');
+      filterDrawer.setAttribute('aria-hidden', 'false');
+      filterOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      filterCloseBtn.focus(); // Focus on close button for accessibility
+    }
+
+    function closeFilterDrawer() {
+      filterDrawer.classList.remove('open');
+      filterOverlay.classList.remove('open');
+      filterDrawer.setAttribute('aria-hidden', 'true');
+      filterOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore scroll
+      mobileFilterBtn.focus(); // Return focus to button
+    }
+
+    if (mobileFilterBtn) {
+      mobileFilterBtn.addEventListener('click', openFilterDrawer);
+    }
+
+    if (filterCloseBtn) {
+      filterCloseBtn.addEventListener('click', closeFilterDrawer);
+    }
+
+    if (filterOverlay) {
+      filterOverlay.addEventListener('click', closeFilterDrawer);
+    }
+
+    // Close drawer on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && filterDrawer.classList.contains('open')) {
+        closeFilterDrawer();
+      }
+    });
+
+    // ===== SYNC MOBILE AND DESKTOP FILTERS =====
+    function syncFilters(source) {
+      if (source === 'mobile') {
+        document.getElementById('originFilter').value = document.getElementById('mobileOriginFilter').value;
+        document.getElementById('priceFilter').value = document.getElementById('mobilePriceFilter').value;
+        document.getElementById('usageFilter').value = document.getElementById('mobileUsageFilter').value;
+      } else {
+        document.getElementById('mobileOriginFilter').value = document.getElementById('originFilter').value;
+        document.getElementById('mobilePriceFilter').value = document.getElementById('priceFilter').value;
+        document.getElementById('mobileUsageFilter').value = document.getElementById('usageFilter').value;
+      }
+      filterTable();
+      generateCards(); // Regenerate cards with new filters
+    }
+
+    // Add change listeners to mobile filters
+    document.getElementById('mobileOriginFilter').addEventListener('change', function() {
+      syncFilters('mobile');
+    });
+    document.getElementById('mobilePriceFilter').addEventListener('change', function() {
+      syncFilters('mobile');
+    });
+    document.getElementById('mobileUsageFilter').addEventListener('change', function() {
+      syncFilters('mobile');
+    });
+
+    // Add change listeners to desktop filters to sync mobile
+    const originalOriginChange = document.getElementById('originFilter').onchange;
+    document.getElementById('originFilter').onchange = function() {
+      originalOriginChange();
+      syncFilters('desktop');
+    };
+
+    const originalPriceChange = document.getElementById('priceFilter').onchange;
+    document.getElementById('priceFilter').onchange = function() {
+      originalPriceChange();
+      syncFilters('desktop');
+    };
+
+    const originalUsageChange = document.getElementById('usageFilter').onchange;
+    document.getElementById('usageFilter').onchange = function() {
+      originalUsageChange();
+      syncFilters('desktop');
+    };
+
+    // Override searchTable to also update cards
+    const originalSearchTable = searchTable;
+    searchTable = function() {
+      originalSearchTable();
+      generateCards();
+    };
+
+    // ===== INITIALIZE CARDS ON LOAD =====
+    window.addEventListener('DOMContentLoaded', function() {
+      generateCards();
+
+      // Regenerate cards when window is resized
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          generateCards();
+        }, 250);
+      });
+    });
+
   </script>
 
 </body>
